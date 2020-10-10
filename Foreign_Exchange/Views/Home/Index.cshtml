@@ -1,0 +1,43 @@
+﻿@model Foreign_Exchange.Models.Money
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Foreign Exchange</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/Content/Style.css" />
+</head>
+<body>
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+        <div class="Container">
+            <div class="Container_Text">
+                @Html.Label("Foreign Exchange")
+            </div>
+            <div class="Container_Inputs">
+                @Html.EditorFor(model => model.Euro, new { htmlAttributes = new { placeholder = "UE", @class= "Inputs" } })
+                <input type="submit" value="Submit" class="Inputs"/>
+            </div>
+            @if (ViewBag.Flag == "1" ) {
+            <table>
+                <tr>
+                    <td>@Html.LabelFor(model => model.CAD)</td>
+                    <td>@Html.DisplayFor(model => model.CAD)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(model => model.CNY)</td>
+                    <td>@Html.DisplayFor(model => model.CNY)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(model => model.USD)</td>
+                    <td>@Html.DisplayFor(model => model.USD)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(model => model.GBP)</td>
+                    <td>@Html.DisplayFor(model => model.GBP)</td>
+                </tr>
+            </table>}
+        </div>
+    }
+</body>
+</html>
